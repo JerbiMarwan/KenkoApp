@@ -1,5 +1,5 @@
 <template>
-    <v-toolbar app color="amber" id="header" fixed>
+    <v-toolbar color="amber" id="header" fixed>
         <v-spacer />
         <v-toolbar-title id="toolbar">
             ({{appTitle}})

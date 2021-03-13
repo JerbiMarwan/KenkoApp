@@ -6,7 +6,6 @@
         <v-layout row wrap>
             <v-flex xs12 sm12 md4>
                 <v-card
-                    :loading="loading"
                     class="mx-auto my-12"
                     max-width="374">
                     <template slot="progress">
@@ -32,7 +31,6 @@
             </v-flex>
             <v-flex xs12 sm12 md4>
                 <v-card
-                    :loading="loading"
                     class="mx-auto my-12"
                     max-width="374">
                     <template slot="progress">
@@ -58,7 +56,6 @@
             </v-flex>
             <v-flex xs12 sm12 md4>
                 <v-card
-                    :loading="loading"
                     class="mx-auto my-12"
                     max-width="374">
                     <template slot="progress">
