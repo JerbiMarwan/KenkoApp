@@ -1,8 +1,12 @@
 <template>
-    <v-container fluid fill-height class="home-hero" style="max-height: 100vh;">
-        <v-layout justify-center align-center column pa-5>
-            <div class="display-4 font-weight-black white--text text-xs-center">DES ALIMENTS SAINS</div>
-            <div class="display-4 font-weight-black white--text text-xs-center mb-3">POUR VOTRE CORPS</div>
+    <v-container fluid fill-height class="home-hero">
+        <v-layout justify-center align-center column>
+            <v-expand-transition>
+                <div v-if="!show">
+                    <div class="display-4 font-weight-black white--text text-xs-center">HEALTHY FOODS</div>
+                    <div class="display-4 font-weight-black white--text text-xs-center mb-3">FOR YOUR BODY</div>
+                </div>
+            </v-expand-transition>
             <div class="display-4 font-weight-bold white--text text-xs-center">
                  <v-text-field
                     v-model="aliment"
@@ -10,7 +14,7 @@
                     filled
                     clearable
                     rounded
-                    label="Saisir un aliment"
+                    label="Enter your food"
                     type="text"
                     @click:append="sendProduct"
                     @keyup.enter.native="sendProduct"
@@ -72,11 +76,9 @@ export default {
                     "X-Api-Key": "MEq6picJZ4OufV1DK7meJQ==LWM5MDlGisNwKV6m"
                 }
             }
-            console.log(this.aliment)
-            this.items = [];
+            // this.items = [];
             axios.get("https://api.calorieninjas.com/v1/nutrition?query=" + this.aliment, config)
             .then(rep =>(
-                // console.log(rep.data.items[0])
                 this.items.push({
                     product: this.aliment,
                     quantity: rep.data.items[0].serving_size_g,
@@ -101,6 +103,7 @@ export default {
         },
         hideTable(){
             this.show = false;
+            this.items = [];
         }
 
     },

@@ -9,20 +9,15 @@
 </template>
 
 <script>
-export default {
-    name: 'AppNavigation',
-    data() {
-        return {
-            appTitle: 'KenkoApp',
-            drawer: false,
-            items: [
-                { title: 'Menu' },
-                { title: 'Sign In' },
-                { title: 'Join' }
-            ]
-        };
-    }
-};
+    export default {
+        name: 'AppNavigation',
+        data() {
+            return {
+                appTitle: 'KenkoApp',
+                drawer: false,
+            };
+        }
+    };
 </script>
 
 <style scoped>
@@ -31,5 +26,8 @@ export default {
         font-size: 40pt;
         font-family: YellowRabbit;
         font-weight: bold;
+    }
+    #header{
+        flex: 0;
     }
 </style>
